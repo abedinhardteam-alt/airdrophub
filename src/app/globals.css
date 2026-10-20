@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #07090d;
+  --foreground: #e8eef6;
+  --card: #0e1218;
+  --card-2: #141a22;
+  --muted: #8b98a8;
+  --line: rgba(232, 238, 246, 0.08);
+  --line-strong: rgba(232, 238, 246, 0.16);
+  --mint: #3ee0b1;
+  --mint-dim: rgba(62, 224, 177, 0.14);
+  --gold: #f5c542;
+  --buy: #34d399;
+  --sell: #fb7185;
+  --danger: #f43f5e;
+  --radius: 0.875rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-2: var(--card-2);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-mint: var(--mint);
+  --color-gold: var(--gold);
+  --color-buy: var(--buy);
+  --color-sell: var(--sell);
+  --font-sans: var(--font-plus-jakarta), "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), "Geist Mono", ui-monospace, monospace;
+  --font-display: var(--font-syne), "Syne", ui-sans-serif, sans-serif;
+}
+
+html,
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+body {
+  font-family: var(--font-sans);
+  min-height: 100%;
+}
+
+::selection {
+  background: var(--mint-dim);
+  color: var(--foreground);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(232, 238, 246, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(232, 238, 246, 0.035) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+.bg-radial {
+  background:
+    radial-gradient(900px 480px at 12% -10%, rgba(62, 224, 177, 0.16), transparent 55%),
+    radial-gradient(700px 400px at 92% 0%, rgba(245, 197, 66, 0.08), transparent 50%),
+    radial-gradient(800px 500px at 70% 110%, rgba(56, 189, 248, 0.07), transparent 50%);
+}
+
+.ticker {
+  animation: ticker 42s linear infinite;
+}
+
+@keyframes ticker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
